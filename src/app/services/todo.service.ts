@@ -8,6 +8,7 @@ import { ITodo } from '../models/todo.interface';
 export class TodoService {
   private _mock: ITodo[] = [
     {
+      id: 1,
       title: 'Yellow-bellied marmot',
       description: 'Marmots flavor for me',
       isCompleted: false,
@@ -16,6 +17,7 @@ export class TodoService {
       selected: true,
     },
     {
+      id: 2,
       title: 'Serval',
       description: 'Fails serval',
       isCompleted: false,
@@ -24,6 +26,7 @@ export class TodoService {
       selected: false,
     },
     {
+      id: 3,
       title: 'Porcupine, tree',
       description: 'Kok KFC',
       isCompleted: false,
@@ -32,6 +35,7 @@ export class TodoService {
       selected: false,
     },
     {
+      id: 4,
       title: 'Manatee',
       description: 'Tenacious D',
       isCompleted: false,
@@ -40,6 +44,7 @@ export class TodoService {
       selected: false,
     },
     {
+      id: 5,
       title: 'Leopard, indian',
       description: 'Steel Panther',
       isCompleted: false,
@@ -48,6 +53,7 @@ export class TodoService {
       selected: false,
     },
     {
+      id: 6,
       title: 'White-mantled colobus',
       description: 'Colobus GoGo',
       isCompleted: false,
