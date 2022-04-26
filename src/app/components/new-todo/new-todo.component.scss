@@ -4,3 +4,9 @@ mat-form-field{
 .submit{
     margin-top: 20px;
 }
+
+::ng-deep{
+    mat-form-field{
+        max-width: 100%;
+    }
+}
