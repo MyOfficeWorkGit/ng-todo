@@ -1,5 +1,5 @@
 import { interval, Subscription } from 'rxjs';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { NumberValueAccessor } from '@angular/forms';
   templateUrl: './count-down.component.html',
   styleUrls: ['./count-down.component.scss'],
 })
-export class CountDownComponent implements OnInit {
+export class CountDownComponent implements OnInit, OnDestroy {
   constructor() {}
 
   @Input() set endDate(endDate: Date) {
@@ -31,15 +31,17 @@ export class CountDownComponent implements OnInit {
 
   ngOnInit(): void {
     this._subscription.add(
-      interval(1000).subscribe(()=>{
+      interval(1000).subscribe(() => {
         this.getTimeDiff();
       })
-    )
+    );
+  }
+  ngOnDestroy(): void {
+    this._subscription.unsubscribe();
   }
 
   private getTimeDiff() {
-    this.timeDiff =
-      new Date(this._endDate).getTime() - new Date().getTime();
+    this.timeDiff = new Date(this._endDate).getTime() - new Date().getTime();
     this.setTimeUnits(this.timeDiff);
   }
   private setTimeUnits(timeDiff: number) {
